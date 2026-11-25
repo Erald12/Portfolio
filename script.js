@@ -36,22 +36,12 @@ const SITE = {
 
 const PROJECTS = [
   {
-    name: "Dataset QA Pipeline",
-    description:
-      "Checks labeled data with rules in Python, then uses Claude to review each label " +
-      "against a written guideline. Outputs a report, a review queue, and a run log, " +
-      "and measures agreement with human labels.",
-    tools: ["Python", "Anthropic API", "Claude Code"],
-    code: "https://github.com/Erald12/dataset-qa-pipeline",
-    demo: "", // add a video link when you have one
-  },
-  {
     name: "Weekly Ops Digest",
     description:
       "Computes weekly revenue, returns, and product changes from sales exports, creates " +
       "charts, and has Claude write a summary. A check blocks any summary that includes " +
-      "figures not found in the data.",
-    tools: ["Python", "matplotlib", "Anthropic API"],
+      "figures not found in the data, and the run is scheduled with a log for each run.",
+    tools: ["Python", "matplotlib", "Anthropic API", "Task Scheduler"],
     code: "https://github.com/Erald12/weekly-ops-digest",
     demo: "",
   },
@@ -59,10 +49,41 @@ const PROJECTS = [
     name: "Product Listing Generator",
     description:
       "Drafts Amazon-style listings from product spec files. Python checks each draft for " +
-      "title and bullet limits, banned claims, and numbers not found in the spec, then " +
-      "marks it ready or needs edit for human review.",
+      "title and bullet limits, banned claims, and numbers not found in the spec, then marks " +
+      "it ready or needs edit. Unchanged specs are skipped, so only new or edited products use API calls.",
     tools: ["Python", "Anthropic API"],
     code: "https://github.com/Erald12/product-listing-generator",
+    demo: "",
+  },
+  {
+    name: "Dataset QA Pipeline",
+    description:
+      "Checks labeled data with rules in Python, then uses Claude to review each label against a " +
+      "written guideline. Writes a report, a review queue, and a run log, and measures agreement " +
+      "with human labels.",
+    tools: ["Python", "Anthropic API", "Claude Code"],
+    code: "https://github.com/Erald12/dataset-qa-pipeline",
+    demo: "",
+  },
+  {
+    name: "Taxonomy Labeler",
+    description:
+      "Labels analytics event names against a written restricted-topic guideline. Claude proposes " +
+      "labels with a confidence rating, and Python rejects any label not in the approved taxonomy. " +
+      "Low-confidence results go to a person.",
+    tools: ["Python", "Anthropic API"],
+    code: "",
+    demo: "",
+  },
+  {
+    name: "AI Voice Receptionist (Prototype)",
+    description:
+      "Turns missed-call voicemails into a prioritized callback queue. Whisper transcribes the " +
+      "recordings, Claude extracts the caller's details, and Python routes emergencies first and " +
+      "checks every draft. Drafts are never sent automatically; staff approve each one. Tested on " +
+      "a small set of hand-labeled recordings, not in live use.",
+    tools: ["Python", "OpenAI Whisper", "Anthropic API"],
+    code: "https://github.com/Erald12/ai-voice-receptionist",
     demo: "",
   },
 ];
