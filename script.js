@@ -3,36 +3,38 @@
 // Leave a URL empty ("") and its link is hidden automatically.
 // =====================================================================
 
-const SITE = {
-  name: "Erald Almoete",
-  role: "AI Automation Builder",
-  summary:
-    "I build Python workflows that combine rule-based checks with Claude for the " +
-    "judgment steps. Every workflow has validated outputs, a run log, and a person " +
-    "approving anything that reaches a customer.",
-  badges: ["Python", "Claude API", "Claude Code", "Data QA", "Workflow Automation"],
-  email: "erald.almoete@gmail.com",
-  github: "https://github.com/Erald12",
-  availability: "Available 20 hours per week, remote.",
-  about:
-    "Background in applied statistics and data quality assurance, with experience in " +
-    "AI data annotation, LLM output evaluation, and dataset validation.",
-  nav: [
-    { label: "Projects", href: "#projects" },
-    { label: "Skills", href: "#skills" },
-    { label: "Contact", href: "#contact" },
-  ],
-  skills: [
-    "Python scripting and data processing",
-    "Anthropic API and prompt design",
-    "Structured output validation",
-    "Claude Code",
-    "Workflow scheduling (Task Scheduler, cron)",
-    "Data quality assurance and labeling",
-    "LLM output evaluation",
-    "Git and GitHub",
-  ],
-};
+const PROJECTS = [
+  {
+    name: "Dataset QA Pipeline",
+    description:
+      "Checks labeled data with rules in Python, then uses Claude to review each label " +
+      "against a written guideline. Outputs a report, a review queue, and a run log, " +
+      "and measures agreement with human labels.",
+    tools: ["Python", "Anthropic API", "Claude Code"],
+    code: "https://github.com/Erald12/dataset-qa-pipeline",
+    demo: "",
+  },
+  {
+    name: "Weekly Ops Digest",
+    description:
+      "Computes weekly revenue, returns, and product changes from sales exports, creates " +
+      "charts, and has Claude write a summary. A check blocks any summary that includes " +
+      "figures not found in the data.",
+    tools: ["Python", "matplotlib", "Anthropic API"],
+    code: "https://github.com/Erald12/weekly-ops-digest",
+    demo: "",
+  },
+  {
+    name: "Product Listing Generator",
+    description:
+      "Drafts Amazon-style listings from product spec files. Python checks each draft for " +
+      "title and bullet limits, banned claims, and numbers not found in the spec, then " +
+      "marks it ready or needs edit for human review.",
+    tools: ["Python", "Anthropic API"],
+    code: "https://github.com/Erald12/product-listing-generator",
+    demo: "",
+  },
+];
 
 const PROJECTS = [
   {
